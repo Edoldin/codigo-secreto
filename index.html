@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            body{margin: 0 auto;padding-left: 3%;}
+            .carta{
+                padding: 0;
+                background-color: rgb(212, 145, 62);
+                display: flex;
+                justify-content: center;
+            }
+            #micolor{
+                display: inline-block;
+                height: 25px;
+                width: 25px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1 class="h1">Código secreto</h1><p><a href="https://www.amazon.es/Devir-C%C3%B3digo-Secreto-Juego-BGCOSE/dp/B019M2EA3Y/ref=sr_1_3?dchild=1&keywords=codigo+secreto&qid=1598224174&sr=8-3">Amazon link</a></p>
+        
+        <div id="qr" class="float-right"></div>
+        <p class="light"></p>
+        <p>Blue Team</p>
+        <div class="progress"> 
+        <div id="blueTeamProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <p>Red Team</p>
+        <div class="progress"> 
+        <div id="redTeamProgressBar" class=" bg-danger progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
+        <button id="cambiaColores" class="btn" style="margin:4px">Muestra Colores</button>
+        <div id="micolor"></div>
+        <script>    
+            const ip="192.168.18.23:5001";        
+            var txt="Gente,humanidad,humano,persona,gente,hombre,mujer,bebé,niño, niña,adolescente,adulto, adulta,anciano, anciana,don, doña,señor, señora,caballero,dama,Cuerpo humano,salud,cuerpo,pierna,pie,talón,espinilla,rodilla,muslo,cabeza,cara,boca,labio,diente,ojo,nariz,barba,bigote,cabello,oreja,cerebro,estómago,brazo,codo,hombro,uña,mano,muñeca,palma,dedo,trasero, culo, cola, glúteos,abdomen,hígado,músculo,cuello,corazón,mente,alma,espíritu,pecho,cintura,cadera,espalda,corazón,sangre,carne,piel,hueso,resfriado,gripe,diarrea,salud,enfermedad,Familia,otras relaciones,familia,amigo, amiga,conocido, conocida,colega,pareja,esposo, esposa,matrimonio,amor,padre,madre,hermano, hermana,hijo, hija,abuelo, abuela,bisabuelo, bisabuela,nieto, nieta,bisnieto, bisnieta,primo, prima,tío, tía,sobrino, sobrina,Vida,criatura,especie,ser,vida,nacimiento,reproducción,muerte,Geografía,naturaleza,campo,bosque,selva, jungla,desierto,costa,playa,río,laguna, lago,mar, océano,cerro, monte, montaña,luz,energía,Animales,animal,perro,gato,vaca,cerdo,caballo, yegua,oveja,mono,ratón, rata,tigre,conejo,dragón,ciervo,rana,león,jirafa,elefante,pájaro,gallina,gorrión,cuervo,águila,halcón,pez,camarón,langosta,sardina,atún,calamar,pulpo,insecto,bicho,mariposa,polilla,saltamontes,araña,mosca,mosquito,cucaracha,caracol,babosa,lombriz,marisco,molusco,lagarto,serpiente,cocodrilo,Plantas,alimentos,alimento,comida,bebida,vegetal,planta,pasto, césped,flor,fruta,semilla,árbol,hoja,raíz,tallo,hongo,ciruela,pino,bambú,nuez,almendra,castaña,arroz,avena,cebada,trigo,verdura,patatas, papas,judías, guisantes, porotos,rábano,zanahoria,manzana,naranja,plátano,pera,castaño,durazno,tomate,sandía,carne,gaseosa,Tiempo,tiempo,calendario,edad,época, era,fecha,instante,momento,segundo,minuto,hora,día,semana,entre semana,fin de semana,mes,año,década,siglo,milenio,ayer,hoy,mañana,amanecer,mediodía,tarde,anochecer,noche,lunes,martes,miércoles,jueves,viernes,sábado,domingo,Espacio,ambiente,espacio,entorno,área,superficie,volumen,región,zona,lado,mundo,planeta,sol,luna,estrella,galaxia,universo,clima,despejado,nublado,lluvia,nieve,viento,trueno,rayo,tormenta,cielo,este,oeste,sur,norte,derecha,izquierda,diagonal,exterior,interior,Materiales,calor,agua,hielo,vapor,fuego,gas,aire, atmósfera,tierra,piso,suelo,metal, metálico,hierro,oro,plata,plomo,sal,barro, lodo,Medidas,peso,metro,milímetro, centímetro, kilómetro,litro,gramo,kilo,cantidad,total,medida,Sociedad,sociedad,comunidad,reunión,encuentro,estructura,administración,organización,asociación,empresa,equipo,autoridad,cargo,campaña,club,comisión,congreso,consejo,partido,país,nación,gobierno,estado,provincia,departamento,municipio,democracia,dictadura,política,político,presidente,ministro,director,parlamentario, congresista, senador, diputado,representante,gobernador, intendente, alcalde,policía,bomberos,capital,ciudad,población,pueblo,villa,obligación,libertad,derecho,permiso,prohibición,constitución,ley,decreto,norma,Economía,economía,consumo,demanda,compañía,comercio,mercado,servicio,producto,producción,transacción,almacén,hotel,fábrica,cuenta,boleto,entrada,dinero,billete,vuelto, cambio,máquina expendedora,precio, tarifa,valor,Objetos hechos por el ser humano,Hogar,escritorio,silla,mesa,cama,dormitorio,habitación,cuarto,oficina,panel,puerta,ventana,entrada,hogar,casa,apartamento, departamento,edificio,construcción,elevador, ascensor,escalera,Herramientas,aparato,cámara,aguja,clavo,hilo,cuerda, cordel, cordón,bolsillo,bolso,bolsa,paraguas,parasol,pantalla,pomo,llave,trancar,arma,escultura,libro,revista,cuadro,grabado,electricidad,corriente,base,pata,conexión,Ropa,ropa,prenda,manga,solapa, cuello,botón,cremallera, cierre,cinturón,zapato,gafas,pantalón,camisa,camiseta,zapatilla,cordones,abrigo,chaqueta,calcetines,bragas, calzón,calzoncillo,sujetador, sostén,falda,Transportes,transporte, transporte público, transporte privado,tránsito, tráfico,vehículo,tren, ferrocarril,subterráneo, metro,camino,vía,ruta,calle,carretera,autopista,avenida,estación, parada,avión,aeropuerto,automóvil, coche, auto,bus, autobús, ómnibus,ambulancia,Lenguaje,número,alfabeto,símbolo,punto,coma,raíz, origen, fuente,papel,carta,comunicación,expresión,voz,texto,periodismo,periódico, diario,diccionario,documento,informe,noticia,computadora, ordenador,idioma extranjero,japonés,inglés,chino,alemán,español,francés,Colores,color,blanco,negro,gris,rojo,naranja, anaranjado,amarillo,verde,celeste,azul,violeta,rosa, rosado,marrón, café,Actividades,cultura,autor,actuación,espectador,espectáculo,entretenimiento,arte,cine,dibujo,pintura,música,religión,dios,artículo,educación,escuela,instituto,colegio,universidad,clase,curso,estudio,formación,análisis,investigación,conocimiento,idea,información,dato,forma,manera,modo,estilo,figura,elemento,uso, utilización,ciencia,aritmética,historia,geografía,educación física,deporte,carrera,competición, competencia,ayuda,favor,apoyo,búsqueda,duda,pregunta,respuesta,cuestión,solicitud,decisión,elección,consejo,sugerencia,orden,control,sistema,trabajo,empleo,profesión,esfuerzo,Números,cero,uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,diez,cien, ciento,mil,millón,Espacio,cantidad,lugar,posición,movimiento,velocidad,aceleración,dirección,tamaño,largo, longitud,alto, altura,ancho,mayoría,minoría,aumento,reducción,crecimiento,fondo,frente,Sustantivos abstractos,cosa,aspecto,contenido,objeto,parte,sector,palabra,nombre,código,secreto,formalidad,presente,pasado,futuro,ocasión,vez,acción,actividad,acto,programa,proyecto,obra,acuerdo,actitud,atención,capacidad,concepto,tema,condición,caso,conjunto,grupo,creación,destrucción,origen,destino,objetivo, meta,función,relación,realidad,situación,problema,intento,solución,efecto,resultado,logro,éxito,fracaso,causa,consecuencia,beneficio,perjuicio,calidad,tipo,ataque,defensa,paz,conflicto,guerra,carácter,característica,crisis,cambio,desarrollo,progreso,avance,retroceso,mejora,deterioro,comienzo, inicio, principio,transcurso,fin, final, cabo,etapa,fase,paso,serie,secuencia,grado,nivel,proceso,corte,interrupción,espera,diferencia,similitud,sentido,sensación,vista,oído,tacto,olfato,dolor,conciencia,percepción,imagen,fuerza,potencia,presencia,existencia,experiencia,posibilidad,probabilidad,verdad,mentira,razón,acierto,equivocación,necesidad,falta,significado,carácter,personalidad,pensamiento,memoria,recuerdo,deseo,alegría,tristeza,enojo, enfado,placer, éxtasis,empatía,interés,aburrimiento,cansancio,sorpresa,susto,seguridad,confianza,miedo, temor,ejemplo"
+            var palabras=txt.split(",")
+            
+            function Juego(n=5){
+                var matriz=[];
+                var counter={r:0,b:0,rt:Math.floor((n*n)/3),bt:Math.floor((n*n)/3)};
+                var tabla=document.createElement("table");
+
+                function generaCarta(nombre,color){
+                    var carta={div:document.createElement("div"),color:color,revelada:false,clicked:false,
+                    cambiaColor:function(){
+                        if(!this.revelada){
+                            this.div.classList.remove("btn");
+                            this.div.classList.remove("btn-light");
+                            if(carta.color==0){
+                                this.div.classList.add("bg-dark");
+                                this.div.classList.add("text-white");
+                            }   
+                            if(carta.color==1) this.div.classList.add("bg-danger");
+                            if(this.color==2) this.div.classList.add("bg-primary");
+                            if(this.color==3) this.div.classList.add("bg-white");
+                            this.revelada=true;
+                        }else if(!carta.clicked){
+                            this.div.classList.add("btn");
+                            this.div.classList.add("btn-light");
+                            if(this.color==0){
+                                this.div.classList.remove("bg-dark");
+                                this.div.classList.remove("text-white");
+                            }   
+                            if(this.color==1) this.div.classList.remove("bg-danger");
+                            if(this.color==2) this.div.classList.remove("bg-primary");
+                            if(this.color==3) this.div.classList.remove("bg-white");
+                            this.revelada=false;
+                        }
+                        }
+                    };
+                    carta.div.className="text-center btn btn-light align-middle card  carta shadow"
+                    carta.div.style.height="100px";
+                    carta.div.style.width=(100*1.37)+"px";
+                    carta.div.style.margin="2px";
+                    carta.div.onclick=function(){
+
+                        if(!carta.clicked)carta.cambiaColor();
+                        if(carta.color==1){
+                            const progressBar=document.getElementById("redTeamProgressBar");
+                            counter.r++
+                            const pcg=counter.r/counter.rt*100
+                            progressBar.setAttribute('aria-valuenow',pcg);
+                            progressBar.setAttribute('style','width:'+pcg+'%');
+                        }
+                        if(carta.color==2){
+                            const progressBar=document.getElementById("blueTeamProgressBar");
+                            counter.b++
+                            const pcg=counter.b/counter.bt*100
+                            progressBar.setAttribute('aria-valuenow',pcg);
+                            progressBar.setAttribute('style','width:'+pcg+'%');
+                        }
+                       
+                        carta.clicked=true
+                    };
+                    
+                    var p=document.createElement("p");
+                    p.innerHTML=nombre;
+                    carta.div.appendChild(p);
+                    return carta;
+                }
+                //array de colores
+                function generaColores(){
+                    var colores=[];
+                    var coloredCards=Math.floor((n*n)/3)
+                    for(let k=0;k<coloredCards;k++) colores.push(1);
+                    for(let k=0;k<coloredCards;k++) colores.push(2);
+                    for(let k=0;k<(n*n)-coloredCards*2-2;k++) colores.push(3);
+                    colores.push(0);
+                    var color
+                    if(Math.random()>0.5){  colores.push(1);color=1;counter.rt++}
+                    else {                  colores.push(2);color=2;counter.bt++}
+                    return {colores, color}
+                }
+                micolor=document.getElementById("micolor");
+               
+                const{colores,empieza}=generaColores();
+                console.log(colores)
+                
+                document.body.appendChild(tabla)
+                while(colores.length!=0){
+                    if(colores.length%n==0){
+                        var tr=document.createElement("tr");
+                        tabla.appendChild(tr);
+                    }
+                    var td=document.createElement("td");
+                    var random=Math.floor(Math.random()*colores.length);
+                    var carta=generaCarta(palabras[Math.floor(Math.random()*palabras.length)].toUpperCase(),colores[random]);
+                    colores.splice(random,1);
+                    tr.appendChild(td);
+                    td.appendChild(carta.div);
+                    matriz.push(carta);
+                }
+
+                empieza==1?
+                    document.getElementById("cambiaColores").classList.add("btn-outline-danger"):
+                    document.getElementById("cambiaColores").classList.add("btn-outline-primary");
+                document.getElementById("cambiaColores").onclick=()=>matriz.forEach(e=>e.cambiaColor())
+                var mensaje={id:Math.floor(Math.random()*10000),colores:matriz.map(e=>e.color), nombres:matriz.map(e=>e.div.firstChild.innerHTML)};
+
+                function getQr(mensaje,cb){
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', "ip/qr/"+mensaje.id, true);
+                    xhr.onreadystatechange = function(){
+                        if (this.readyState == XMLHttpRequest.DONE) {
+                            var img=document.createElement("img");
+                            img.style="text-alling:right"
+                            img.src=xhr.responseText
+                            cb(img);
+                        }
+                    };
+                    xhr.send(JSON.stringify(mensaje)); //start process
+                }
+                getQr(mensaje,e=>{document.getElementById("qr").appendChild(e)})
+            }
+            window.onload=()=>{
+                //getQr("hola me llamo pedro",img=>document.body.appendChild(img));
+                Juego(5);
+            }
+            
+        </script>
+    </body>
+</html>

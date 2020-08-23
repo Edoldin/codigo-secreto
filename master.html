@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            body{margin: 0 auto;padding-left: 3%;}
+            .carta{
+                padding: 0;
+                background-color: rgb(212, 145, 62);
+                display: flex;
+                justify-content: center;
+            }
+            #micolor{
+                display: inline-block;
+                height: 25px;
+                width: 25px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1 class="h1">Pumuky's Game. Master's View</h1>
+        <script>           
+           function Juego(n=5){
+                var tabla=document.createElement("table");
+                function generaCarta(nombre,color){
+                   var carta={div:document.createElement("div"),color:color}
+                   carta.div.className="text-center align-middle card  carta shadow"
+                   carta.div.style.height="100px";
+                   carta.div.style.width=(100*1.37)+"px";
+                   carta.div.style.margin="2px";
+                   if(carta.color==0){
+                        carta.div.classList.add("bg-dark");
+                        carta.div.classList.add("text-white");
+                    }   
+                    if(carta.color==1) carta.div.classList.add("bg-danger");
+                    if(carta.color==2) carta.div.classList.add("bg-primary");
+                    if(carta.color==3) carta.div.classList.add("bg-white");
+
+                   var p=document.createElement("p");
+                   p.innerHTML=nombre;
+                   carta.div.appendChild(p);
+                   return carta;
+               }
+               document.body.appendChild(tabla)
+               var contenidoDiv=document.getElementById("contenido");
+               var contenido=JSON.parse(contenidoDiv.innerHTML);
+               contenidoDiv.innerHTML="";
+               const {nombres, colores}=contenido;
+               console.log(nombres,colores);
+               var k=0;
+               while(colores.length!=k){
+                   if(k%n==0){
+                       var tr=document.createElement("tr");
+                       tabla.appendChild(tr);
+                   }
+                   var td=document.createElement("td");
+                   var carta=generaCarta(nombres[k],colores[k]);
+                   tr.appendChild(td);
+                   td.appendChild(carta.div);
+                   k++
+               }
+               document.body.appendChild(tabla);
+               
+           }
+           function recursiveTimer(truer,cb){
+               if(truer())cb()
+               else setTimeout(()=>{recursiveTimer(truer,cb)}, 1)
+           }
+           window.onload =()=>{
+                recursiveTimer( 
+                    ()=>{
+                        console.log("timer");
+                        return (document.getElementById("contenido")!=undefined)
+                    },
+                    ()=>{
+                        console.log("salgo del timer")
+                        Juego(5);
+                    });
+                }
+           
+
+           
+       </script>
+   </body>
+</html>
