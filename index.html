@@ -81,7 +81,7 @@
                     carta.div.style.margin="2px";
                     carta.div.onclick=function(){
 
-                        if(!carta.clicked)carta.cambiaColor();
+                        if(!carta.clicked){carta.cambiaColor();
                         if(carta.color==1){
                             const progressBar=document.getElementById("redTeamProgressBar");
                             counter.r++
@@ -96,7 +96,7 @@
                             progressBar.setAttribute('aria-valuenow',pcg);
                             progressBar.setAttribute('style','width:'+pcg+'%');
                         }
-                       
+                        }
                         carta.clicked=true
                     };
                     
